@@ -121,7 +121,6 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     if (!enabled)
         return;
 
-    [audioPlayer play];
     [self fireEvent:kAPPBackgroundEventActivate];
 }
 
@@ -137,8 +136,6 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     if (audioPlayer.isPlaying) {
         [self fireEvent:kAPPBackgroundEventDeactivate];
     }
-
-    [audioPlayer pause];
 }
 
 /**
@@ -155,7 +152,6 @@ NSString* const kAPPBackgroundEventDeactivate = @"deactivate";
     audioPlayer = [[AVAudioPlayer alloc]
                    initWithContentsOfURL:url error:NULL];
 
-    audioPlayer.volume        = 0;
     audioPlayer.numberOfLoops = -1;
 };
 
